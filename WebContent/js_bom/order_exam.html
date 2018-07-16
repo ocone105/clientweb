@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+	<title>Insert title here</title>
+	<style type="text/css">
+		body {
+			font: 14px 굴림체;
+			text-align: center;
+		}
+		.main {
+		  margin-top:15px;
+		  width:700px;
+		}
+		div.heading {
+			font: 20px HY견고딕;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+		div.subheading {
+			font: 15px HY견고딕;
+			font-style: italic;
+			margin-bottom: 10px;
+		}
+		.img {
+			float: left;
+			width: 350px;
+		}
+		div.field {
+		  margin-bottom:5px;
+		  text-align:right;
+		}
+		form{
+		padding-left:0px;
+			
+		}
+	</style>
+	<script type="text/javascript">
+		function previewImg(myform){	// 객실별 이미지
+			room = myform.name.selectedIndex;
+			roomImg = new Array("../images/pension.jpg", "../images/ruby1.jpg", "../images/emerald1.jpg", "../images/sapphire1.jpg", "../images/sky01.jpg", "../images/star1.jpg");
+			document.getElementById("Img").innerHTML = "<img src='"+roomImg[room]+"' width='300' height='300' />";				
+		}
+		function order(myform){
+			if(myform.blanket.value==Math.ceil(myform.count.value/2) | myform.blanket.value=="" | myform.count.value==""){
+				/* if(myform.count.value>2){
+				total = 100000 + (myform.bbq.value * 10000) + (myform.blanket.value*10000) + ((myform.count.value-2)*20000);
+				}else{
+					total = 100000 + (myform.bbq.value * 10000) + (myform.blanket.value*10000);
+				} */
+				total = 100000 + (myform.bbq.value * 10000) + (myform.blanket.value*10000) + (myform.count.value*20000);
+				myform.subtotal.value = total;
+				myform.tax.value = myform.subtotal.value * 0.1;
+				myform.total.value = parseInt(myform.subtotal.value) + parseInt(myform.tax.value);
+			}else{
+				alert("이불은 2명당 1개 입니다. 이불추가를 다시 입력하세요. ( 인원:2 = 이불:1  |  인원:3 = 이불:2 )");
+			}
+			document.getElementById("room1").innerHTML = "객실명 : "+ myform.name.options[room].text;
+			document.getElementById("bbq1").innerHTML = "바베큐 :	"+ myform.bbq.value;
+			document.getElementById("blanket1").innerHTML = "이불수 : "+ myform.blanket.value;
+			document.getElementById("count1").innerHTML = "인원수 : "+ myform.count.value;
+			document.getElementById("subtotal1").innerHTML = "금액 : "+ myform.subtotal.value;
+			document.getElementById("tax1").innerHTML = "세금 : "+ myform.tax.value;
+			document.getElementById("total1").innerHTML = "총금액 : "+ myform.total.value;
+		}
+	</script>
+</head>
+<body>
+	<div class="main">
+		<div class="heading">펜션예약사항</div>
+		<div class="subheading">비수기 세일입니다. 펜션의 모든 방을 10만원에 단, 모든 방은 2인용입니다.!!</div>
+		<div class="img" id = "Img">
+			<img src="../images/pension.jpg" width="300" height="300" />
+		</div>
+		<form name="orderform" action="" method="post">
+			<div class="field">
+				객실명: <select name="name" id="name" onchange="previewImg(this.form)">
+					<option>선택하세요</option>
+					<option>루비</option>
+					<option>에메랄드</option>
+					<option>사파이어</option>
+					<option>스카이1호</option>
+					<option>별님실</option>
+				</select>
+			</div>
+			<div class="field">
+				바베큐시설이용: 
+				<input type="text" id="bbq" name="bbq" value="" onchange="order(this.form)" />
+			</div>
+			<div class="field">
+				이불추가: <input type="text" id="blanket" name="blanket" value="" onchange="order(this.form)" />
+			</div>
+			<div class="field">
+				인원수: <input type="text" id="count" name="count" value="" onchange="order(this.form)"/>
+			</div>
+			<div class="field">
+				금액: <input type="text" id="subtotal" name="subtotal" value="" readonly="readonly" />
+			</div>
+			<div class="field">
+				부가세: <input type="text" id="tax" name="tax" value="" readonly="readonly" />
+			</div>
+			<div class="field">
+				총금액: <input type="text" id="total" name="total" value="" readonly="readonly" />
+			</div>
+			<div class="field">
+				<input type="button" value="Place Order" onclick="exec(this.form)"/>
+			</div>
+			<div id="room1" align="right"></div>
+			<div id="bbq1" align="right"></div>
+			<div id="blanket1" align="right"></div>
+			<div id="count1" align="right"></div>
+			<div id="subtotal1" align="right"></div>
+			<div id="tax1" align="right"></div>
+			<div id="total1" align="right"></div>
+	</form>
+	</div>
+</body>
+</html>

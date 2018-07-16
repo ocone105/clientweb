@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR" />
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../common/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<div id="main">
+		<div class="test1">jquery~~~</div>
+		<div class="test2">jquery~~~~</div>
+		<div id="test3">jquery~~~~</div>
+		<div id="test4">jquery~~~~</div>
+		<div id="test5">jquery~~~~</div>
+	</div>
+	<form>
+		<input type="button" id="nodetest" value="노드가져오기"/>
+	</form>
+	<script type="text/javascript">
+		// DOM노드 액세스
+		$(document).ready(function(){
+			$("#nodetest").on("click", function(){
+				// 특정 노드의 하위노드를 모두 가져오기
+				// children()는 특정 노드의 모든 자식노드를 가져오기
+				// last() : lastChild
+				// first() : firstChild
+				// 메소드 체이닝이 가능 => 메소드의 실행결과로 다시 메소드를 체인처럼 호출하는 방식
+				list = $("#main").children();
+				alert(list.length);
+				$("#main").children().css("color", "orange");
+				$("#main").children().last().css("color", "blue");
+				$("#main").children().first().css("color", "red");
+			});
+		});
+	</script>
+</body>
+</html>
+
+
+

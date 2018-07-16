@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR" />
+	<title>jquery</title>
+	<link rel="stylesheet" href="../common/css/my_style2.css">
+	<script type="text/javascript" src="../common/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".gardenimg").mouseover(function(){	// on("mouseover") 로 써도 됨
+				$(".gardenimg p").remove();
+				rand = Math.floor((Math.random()*10)+500);
+				//alert(rand);
+				myelement = "<p>방문자수 : "+rand+"</p>";
+				$(this).append(myelement);
+			});
+		});
+	</script>
+</head> 
+<body>
+	<div id="header">
+		<h2>아침고요수목원~</h2>
+	</div>
+	<div id="main">
+		<div class="gardenimg"><img src="../images/m_garden01.jpg"/><p></p></div>
+		<div class="gardenimg"><img src="../images/m_garden02.jpg"/><p></p></div>
+		<div class="gardenimg"><img src="../images/m_garden03.jpg"/><p></p></div>
+		<div class="gardenimg"><img src="../images/m_garden05.jpg"/><p></p></div>
+	</div>
+	<script>
+	</script>
+</body>
+</html>

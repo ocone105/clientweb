@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<style type="text/css">
+		table{
+			border-style: none;
+			text-align: center;
+			height: 300;
+		}
+		th{
+			background-color: #FFCC66;
+			border-style: none;
+			border-color: white;
+		}
+		td{
+			background-color: #FFFF99;
+			border-style: none;
+			border-color: white;
+		}
+		#today{
+			background-color: #FFCCCC;
+		}
+		#top{
+			color: blue;
+		}		
+	</style>
+</head>
+<body>
+	<h3 id="top"></h3>
+	<div id="calendar"></div>
+	<script type="text/javascript">
+		today = new Date();
+		lastdate = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+		weekday = new Array("일", "월", "화", "수", "목", "금", "토");
+		year = today.getFullYear();
+		month = today.getMonth()+1;
+		date = today.getDate();
+		day = today.getDay();
+		newday = new Date();
+		
+		if(((year%4==0)&(year%100!=0))|(year%400==0)){
+            lastdate[1] = 29;
+        }
+		
+		str = "<table border='1' width = 300>";
+
+		str = str + "<tr>";
+		for(i=0;i<7;i++){
+				str = str + "<th>"+weekday[i]+"</th>";
+		}
+		str = str + "</tr>";
+		
+		for(a=0;a<newday.getDay();a++){
+				str = str + "<td> </td>";
+		}
+		
+		for(dd=1;dd<=lastdate[today.getMonth()];dd++){
+			if(dd==date){
+				str = str + "<td id = 'today'>"+ dd +"</td>";
+			}else{
+				newday.setDate(dd);
+				if(newday.getDay()==0){
+					str = str + "<tr><td>" + dd + "</td>";
+			    }else if(newday.getDay()==6){
+			     	str = str + "<td>" + dd +"</td></tr>";
+			    }else{
+			     	str = str + "<td>" + dd + "</td>"
+			    } 	
+			}
+		}	
+		str = str + "</table>";
+		
+		title = year + "년" + month + "월";
+		document.getElementById("top").innerHTML = title;
+		document.getElementById("calendar").innerHTML = str;
+	</script>
+</body>
+</html>

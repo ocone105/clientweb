@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Javascript1_1</title>
+	<!-- 4. 외부문서에 정의된 자바스크립트를 실행하는 방법 -->
+	<script type="text/javascript" src="../common/js/test.js"></script>
+
+	<!-- 2. <head>태그 안에 함수를 정의하고 필요한 곳에서 호출해서 사용하는 방법 -->
+	<script type="text/javascript">
+		function test(){
+			alert("테스트");
+		}	
+	</script>
+</head>
+<body>
+	<!-- 1. bady태그 안에 정의하고 사용하는 방법 -->
+	<script type="text/javascript">
+		// 한 줄 주석
+		/* 여러 줄 주석 */
+		document.write("<h1>브라우저에 데이터 출력하기 - 연습용</h1>");		// 세미콜론의 유무는 상관없음
+		test();
+		document.write("<h2>end</h2>");
+		test();
+		test();
+	</script>
+
+	<!-- 3. 태그 내부에서 inline으로 삽입 (이벤트 핸들러에 연결) -->
+	<input type="button" value="자바스크립트 호출" onclick="test()"/>
+	<a href="javascript:test()">테스트</a>	<!-- a태그는 기본적으로 문서를 찾음 따라서 404에러가 뜸 -> 문서가 아니라는 것을 알려줘야함 -> javascript:를 붙여줌 -->
+	
+	<!-- 4. 외부문서에 정의된 자바스크립트 함수를 호출한다. -->
+	<input type="button" value="자바스크립트 호출" onclick="test2()">
+</body>
+</html>

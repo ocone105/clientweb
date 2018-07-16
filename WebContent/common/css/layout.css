@@ -1,0 +1,42 @@
+@CHARSET "EUC-KR";
+body{
+	font-size: 9pt
+}
+#header{
+	color: #007177
+}
+#garden{
+	background-image: url('../../images/background.gif');
+	background-repeat: no-repeat;
+	background-color: #a7cece;	
+	border: solid white 1px;
+	padding: 20px;
+	margin: 20px;
+	padding-left: 100px;	
+	font-style: italic;
+	height: 80px;
+	overflow: auto;
+
+}
+#garden1{
+	float: left;
+	width: 80%;
+	
+}
+#aa{
+	color: #007177;
+}
+#garden02{
+	border: solid #97CACA 3px;
+	float: left;
+	width: 15%;
+	text-align: center;
+	position: static;
+	top: 10px;
+	margin-left: 20px;
+	padding: 10px;
+}
+#footer{
+	clear: both;
+	text-align: center;
+}

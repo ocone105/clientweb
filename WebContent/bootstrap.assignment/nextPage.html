@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>My Page2</title>
+	<meta charset="EUC-KR">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	.container-fluid {
+		padding: 60px 50px;
+	}
+	.logo-small {
+		color: #80397b;
+		font-size: 50px;
+	}
+	#foot{
+		overflow: hidden;
+	}
+	</style>
+</head>
+<body>
+	<div class="container-fluid text-center">
+		<h2>My Favorite Things</h2>
+		<h4>Put the mouse on Icon</h4>
+		<br>
+		<div class="row">
+			<div class="col-sm-4" id="first">
+				<span class="glyphicon glyphicon-music logo-small"></span>
+				<h4>Music</h4>
+				<p>Wiz Khalifa - See You Again </p>
+		
+			</div>
+			<div class="col-sm-4" id="second">
+				<span class="glyphicon glyphicon-film logo-small"></span>
+				<h4>Movie</h4>
+				<p>The Fast and the Furious..</p>
+			</div>
+			<div class="col-sm-4" id="third">
+				<span class="glyphicon glyphicon-plane logo-small"></span>
+				<h4>Travel</h4>
+				<p>Taiwan Traveling..</p>
+			</div>
+		</div>
+		<br><br>
+		<iframe id = "sh" width="560" height="315"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	</div>
+	<footer class="container-fluid" id="foot">
+  		<h1>Info</h1>
+	</footer>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#first").on("mouseover", function(){
+				$("#sh").attr("src", "https://www.youtube.com/embed/RgKAFK5djSk");
+				
+				$("#foot").css("height", "700px");
+				$("#foot").attr({"background-color":"black"});
+				//$("#main").css("marginLeft", "260px"); 
+
+			});
+			$("#second").on("mouseover", function(){
+				$("#sh").attr("src", "https://www.youtube.com/embed/K_8jNjPOUqQ");
+			});
+			$("#third").on("mouseover", function(){
+				$("#sh").attr("src", "https://www.youtube.com/embed/O8nzyOE5w3Q");
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Vending Machine</title>
+	<script type="text/javascript" src="../common/js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+	#machine {
+		background-image: url("../VMImg/VendingMachine.jpg");
+		background-size: 100% 100%;
+		position: absolute;
+		top: 100px;
+		left: 100px;
+		width: 500px;
+		height: 700px;
+		border-color: black;
+		border-style: solid;
+		border-width: 5px;
+		z-index: 1;
+	}
+	
+	.bill {
+		width: 90px;
+		height: 35px;
+		position: absolute;
+		left: 650px;
+	}
+	
+	#totalPrice{
+		color: white;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top: 392px;
+		right: 40px;
+	}
+	
+	#insert {
+		color: white;
+		position: absolute;
+		top: 280px;
+		right: 50px;
+	}
+	
+	.Item {
+		position: absolute;
+		left: 95px;
+		width: 200px;
+		height: 60px;
+	}
+	#ok{
+		position: absolute;
+		top: 460px;
+		right: 45px;
+	}
+	#Cancel{
+		position: absolute;
+		top: 330px;
+		right: 35px;
+	}
+	</style>
+	<script type="text/javascript">
+		var insert = 0;
+		var price = 0;
+		var total = 0;
+	
+		$(document).ready(function() {
+			for (i = 1; i <= 6; i++) {
+				$("#bill" + i).css("top", (40 * i + 300) + "px");
+			}
+			
+			$("#bill1").on("click", function() {
+				insert = insert + 50000;
+				$("#insert").html(insert);
+			});
+			$("#bill2").on("click", function() {
+				insert = insert + 10000;
+				$("#insert").html(insert);
+			});
+			$("#bill3").on("click", function() {
+				insert = insert + 5000;
+				$("#insert").html(insert);
+			});
+			$("#bill4").on("click", function() {
+				insert = insert + 1000;
+				$("#insert").html(insert);
+			});
+			$("#bill5").on("click", function() {
+				insert = insert + 500;
+				$("#insert").html(insert);
+			});
+			$("#bill6").on("click", function() {
+				insert = insert + 100;
+				$("#insert").html(insert);
+			});
+			
+			$("#bill5").css("width", "35px");
+			$("#bill6").css("width", "35px");
+			
+			for (i = 0; i < 5; i++) {
+				$("#Item" + (i + 1)).css("top", (80 * i + 90) + "px");
+			}
+			$("#Item1").on("click", function() {
+				price = price + 900;
+				$("#totalPrice").html(price);
+			});
+			$("#Item2").on("click", function() {
+				price = price + 1200;
+				$("#totalPrice").html(price);
+			});
+			$("#Item3").on("click", function() {
+				price = price + 1200;
+				$("#totalPrice").html(price);
+			});
+			$("#Item4").on("click", function() {
+				price = price + 1800;
+				$("#totalPrice").html(price);
+			});
+			$("#Item5").on("click", function() {
+				price = price + 2000;
+				$("#totalPrice").html(price);
+			});
+			
+			$("#Cancel").on("click", function(){
+				insert = 0;
+				$("#insert").html(insert);
+				$("#totalPrice").html(price);
+			});
+			$("#ok").on("click", function(){
+				result = insert-price;
+				if(result<0){
+					alert("금액이 모자랍니다");
+				}else{
+					alert(result+"원 반환");
+					insert = 0;
+					price=0;
+					$("#insert").html(insert);
+					$("#totalPrice").html(price);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="machine">
+		<div class="Item" id="Item1"></div>
+		<div class="Item" id="Item2"></div>
+		<div class="Item" id="Item3"></div>
+		<div class="Item" id="Item4"></div>
+		<div class="Item" id="Item5"></div>
+		<div id="insert"></div>
+		<div id="totalPrice"></div>
+		<button type="button" class="btn btn-danger" id="Cancel">Cancel</button>
+		<button type="button" class="btn btn-danger" id="ok">OK</button>
+	</div>
+	<img class="bill" id="bill1" alt="오만원" src="../VMImg/50000.png">
+	<img class="bill" id="bill2" alt="만원" src="../VMImg/10000.png">
+	<img class="bill" id="bill3" alt="오천원" src="../VMImg/5000.png">
+	<img class="bill" id="bill4" alt="천원" src="../VMImg/1000.png">
+	<img class="bill" id="bill5" alt="오백원" src="../VMImg/500.PNG">
+	<img class="bill" id="bill6" alt="백원" src="../VMImg/100.png">
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+	<table border="1" width="400" height="500">
+		<tr>
+			<td colspan="2" align="center"><B>회원가입</B></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text"  name="이름"></td>
+		</tr>
+		<tr>
+			<td>사용자ID</td>
+			<td><input type="text" size="30" maxlength="10" name="사용자ID"></td>
+		</tr>
+		<tr>
+			<td>암호</td>
+			<td><input type="password" size="30" maxlength="10" name="암호"></td>
+		</tr>
+		<tr>
+			<td>암호확인</td>
+			<td><input type="password" size="30" maxlength="10" name="암호확인"></td>
+		</tr>
+		<tr>
+			<td>주민등록번호</td>
+			<td><input type="number" size="15" maxlength="6" name="주민등록번호1">-<input type="text" size="15" maxlength="7" name="주민등록번호2"></td>
+		</tr>
+		<tr>
+			<td>전화번호</td>
+			<td><input type="number" size="8" maxlength="3" name="전화번호1">-<input type="text" size="8" maxlength="4" name="전화번호2">-<input type="text" size="8" maxlength="4" name="전화번호3"></td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td><input type="radio" name="subject1" value="남자">남자<input type="radio" name="subject1" value="여자">여자</td>
+		</tr>
+		<tr>
+			<td>직업</td>
+			<td>
+			<select name = "subject2">
+			<option value="선택">선택하여주십시오.
+			<option value="웹디자이너">웹디자이너
+			<option value="개발자">개발자
+			<option value="빅데이터개발자">빅데이터개발자
+			<option value="DBA">DBA
+			<option value="임베디드개발자">임베디드개발자
+		</select></td>
+		</tr>
+		<tr>
+			<td>email주소</td>
+			<td><input type="email" size="30" maxlength="10" name="email주소"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" value="가입신청">	
+				<input type="reset" value="취소">
+			</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

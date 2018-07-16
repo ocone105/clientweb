@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function allcheck(){
+			mycheck = document.myform.prd;
+			allChkVal = document.myform.allchk.checked;
+			for(i=0;i<mycheck.length;i++){
+				mycheck[i].checked = allChkVal;
+			}
+		}
+		function cal(){
+			mycheck = document.myform.prd;
+			// allChkVal = document.myform.allchk.checked;
+			if(allChkVal=true){
+				document.myform.allchk.checked = false;
+			}
+			pr = new Array(document.getElementById("price1"), document.getElementById("price2"))
+			pr[0].innerHTML = parseInt(document.myform.count[0].value) * parseInt(document.myform.price[0].value);
+			pr[1].innerHTML = parseInt(document.myform.count[1].value) * parseInt(document.myform.price[1].value);
+			
+			total = 0;
+			for(i=0;i<mycheck.length;i++){
+				if(mycheck[i].checked){
+					total = total + parseInt(pr[i].innerHTML);
+				}
+			}
+			document.getElementById("totalprice").innerHTML = total;
+		}
+	</script>
+</head>
+<body>
+	<form name="myform">
+		<table border="1" width="800">
+			<tr>
+				<td><input type="checkbox" name="allchk" onclick="allcheck()"/>항목명</td>
+				<td>상품정보</td>
+				<td>수량</td>
+				<td>판매가</td>
+				<td>구매예정가</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd" onclick="cal()"/>완도미역</td>
+				<td><img src="../images/pro1.jpg"/></td>
+				<td><input type="text" name="count" value="1" onkeyup="cal()"/></td>
+				<td>
+				<input type="text" name="price" value="6900" onkeyup="cal()"/><span>원</span></td>
+				<td><span id="price1"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd" onclick="cal()"/>스카트 빨아쓰는 휴지</td>
+				<td><img src="../images/pro2.jpg"/></td>
+				<td><input type="text" name="count" value="1" onkeyup="cal()"/></td>
+				<td><input type="text" name="price" value="7800" onkeyup="cal()"/><span>원</span></td>
+				<td><span id="price2"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td colspan="6" align="right"><span id="totalprice"></span><span>원</span></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
